@@ -33,7 +33,7 @@ public class UsuarioRepository {
 	public void inserir(Usuario usuario) {
 		try {
 			session.beginTransaction();
-			session.persist(usuario);
+			session.persist(usuario); //persiste nosso objeto (salva)
 			session.getTransaction().commit();
 			System.out.println("Usuário inserido com sucesso");
 		} catch (Exception e) {
@@ -102,6 +102,7 @@ public class UsuarioRepository {
  * @return usuário encontrado ou null se não existir
  */
 public Usuario pesquisaPeloCpf(String cpf) {
+	
     Usuario usuario = null;
     try {
         session.beginTransaction();
@@ -124,6 +125,12 @@ public Usuario pesquisaPeloCpf(String cpf) {
         System.out.println("Ocorreu um problema ao consultar o usuário pelo CPF: " + e.getMessage());
     }
     return usuario;
+    
+	
+	//fazendo na aula
+	
+	
+	
 }
 
 	public Usuario pesquisaPeloId(long id) {
@@ -145,6 +152,7 @@ public Usuario pesquisaPeloCpf(String cpf) {
 	 * @return lista de usuários encontrados
 	 */
 	public List<Usuario> pesquisaPelaInicialDoNome(String inicial) {
+		
 		List<Usuario> usuarios = new ArrayList<>();
 		try {
 			session.beginTransaction();
@@ -166,6 +174,12 @@ public Usuario pesquisaPeloCpf(String cpf) {
 			System.out.println("Ocorreu um problema ao consultar usuários pelas iniciais do nome: " + e.getMessage());
 		}
 		return usuarios;
+		
+		
+		//fazendo na aula
+		
+		
+		
 	}
 
 }
